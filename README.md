@@ -1,5 +1,8 @@
 # Frosty
 
+[![CI](https://github.com/egilkh/frosty/actions/workflows/ci.yml/badge.svg)](https://github.com/egilkh/frosty/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/egilkh/frosty/branch/main/graph/badge.svg?token=4QXX27P02K)](https://codecov.io/gh/egilkh/frosty)
+
 ## Description
 
 A highly opinionated mock server. Tries to imitate a REST like server. Useful for working with design/frontend without having to have servers running.
