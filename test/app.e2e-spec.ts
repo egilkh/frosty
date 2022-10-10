@@ -1,6 +1,6 @@
+import type { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
+import request from 'supertest';
 import { AppModule } from './../src/app.module';
 
 describe('AppController (e2e)', () => {
@@ -15,10 +15,15 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+  describe('/', () => {
+    it('should error on GET', async () => {
+      const response = await request(app.getHttpServer()).get('/');
+      const body = response.body as Record<string, unknown>;
+
+      expect(response.statusCode).toBe(400);
+      expect(body['message']).toBe(
+        'At least one collection needs to be part of url',
+      );
+    });
   });
 });
