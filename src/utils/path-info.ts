@@ -11,10 +11,12 @@ export default class PathInfo {
 
   public readonly url: string;
 
-  constructor(url: string) {
-    this.url = url;
+  constructor(requestUrl: string) {
+    const u = new URL(requestUrl, 'https://exmaple.com');
 
-    const urlSegments = url.split('/').filter((p) => !!p);
+    this.url = u.pathname;
+
+    const urlSegments = this.url.split('/').filter((p) => !!p);
 
     if (urlSegments.length === 0) {
       throw new BadRequestException(

@@ -72,6 +72,10 @@ export default class DBService {
     return this.db.put(key, value);
   }
 
+  async patch(key: string, value: BodyObject): Promise<void> {
+    return this.db.put(key, value);
+  }
+
   async delete(key: string): Promise<void> {
     return this.db.del(key);
   }

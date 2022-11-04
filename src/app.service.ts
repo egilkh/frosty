@@ -153,7 +153,7 @@ export class AppService {
       entity[k] = one[k];
     });
 
-    await this.db.put(pathInfo.key, entity);
+    await this.db.patch(pathInfo.key, entity);
 
     return this.readEntity(pathInfo.key);
   }
